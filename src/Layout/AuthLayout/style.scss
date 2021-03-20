@@ -1,0 +1,23 @@
+.auth_section {
+  @apply w-full rounded-md;
+
+  .reg_text {
+    @apply text-txt mb-6 text-left;
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    p {
+      @apply mt-4 text-xs;
+    }
+  }
+
+  .btn {
+    @apply w-full mt-10;
+  }
+
+  .externs {
+    @apply flex justify-end text-primary mt-3;
+  }
+}

@@ -1,0 +1,195 @@
+%placeholder {
+  top: 12px;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+%selected {
+  @apply text-white bg-primary;
+}
+
+.input-div {
+  @apply mb-5 w-full;
+
+  &.select_op {
+    &[disabled] {
+      .currentValue {
+        color: grey;
+
+        &.arrow {
+          &::after {
+            color: grey !important;
+          }
+        }
+      }
+    }
+  }
+
+  .input {
+    .input-type {
+      @apply z-0 bg-transparent w-full text-sm p-2 pt-5 outline-none;
+
+      &:focus {
+        + .place-holder {
+          @extend %placeholder;
+        }
+      }
+
+      &[type='date'] {
+        + .place-holder {
+          @extend %placeholder;
+        }
+      }
+    }
+
+    .place-holder {
+      z-index: -1;
+      @apply absolute left-0 top-1/2 transform -translate-y-1/2 mb-0 ml-2 text-lg text-txt-lit transition-all duration-300;
+      line-height: 1.125rem;
+    }
+
+    .select {
+      .search-input {
+        &::before {
+          @apply absolute bg-white h-2.5;
+          content: '';
+          top: -11px;
+          left: -8px;
+          width: calc(100% + 16px);
+        }
+      }
+
+      .currentValue {
+        outline: none;
+        min-height: 20px;
+
+        &.arrow {
+          &::after {
+            content: '\25BC';
+            position: absolute;
+            @apply text-sm text-primary right-2.5 top-1/2 transform -translate-y-1/2;
+          }
+        }
+
+        p {
+          margin-bottom: 0;
+          min-height: 0.85em;
+        }
+
+        img {
+          margin-left: 10px;
+          width: 10px;
+          height: 15px;
+        }
+      }
+
+      .dropDownButtons {
+        padding: 5px 8px 10px;
+        transition: visibility 0.4s ease, top 0.3s ease, opacity 0.2s ease;
+        transform-origin: top;
+        max-height: 400px;
+
+        &:hover {
+          overflow-y: scroll;
+        }
+
+        .options {
+          &:hover {
+            @extend %selected;
+            @apply bg-primary-light;
+          }
+        }
+
+        .selected {
+          @extend %selected;
+        }
+
+        &.open-drop {
+          @apply visible opacity-100 mt-10;
+        }
+      }
+    }
+
+    .open-drop {
+      + .place-holder {
+        @extend %placeholder;
+      }
+    }
+
+    .reviel-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      font-size: 0.8em;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      svg {
+        fill: rgba(white, 0.7);
+        stroke: rgba(white, 0.7);
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .input-con {
+    @apply shadow-md rounded-sm z-0 relative;
+
+    &.invalid {
+      .reviel-password,
+      .place-holder {
+        @apply text-tomato;
+      }
+    }
+
+    &.valid {
+      .reviel-password,
+      .place-holder {
+        @apply text-primary;
+      }
+    }
+
+    &.typing,
+    &.valid,
+    &.invalid {
+      .place-holder {
+        @extend %placeholder;
+      }
+    }
+
+    .error {
+      margin-top: 2px;
+      font-size: 0.7em;
+      color: color(secondary);
+    }
+  }
+
+  .grow {
+    transform-origin: center;
+    animation: grow 0.5s forwards ease-in-out;
+  }
+}
+
+@keyframes grow {
+  0% {
+    @apply bg-txt-lit;
+  }
+
+  100% {
+    @apply bg-tomato;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill + .place-holder {
+  top: 12px !important;
+  font-size: 0.75rem !important;
+  line-height: 1 !important;
+}

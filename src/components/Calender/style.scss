@@ -1,0 +1,96 @@
+.r_calenx {
+  .calender-body {
+    tbody {
+      tr {
+        td {
+          position: relative;
+
+          .toolTip {
+            background: #fcf2dc;
+            color: black;
+            padding: 10px;
+            width: 150px;
+            border-radius: 10px;
+            position: absolute;
+            top: 80%;
+            transition: 0.3s ease;
+            opacity: 0;
+
+            p {
+              font-size: 0.8em;
+            }
+          }
+
+          &.left {
+            .toolTip {
+              left: 0;
+            }
+          }
+
+          &.right {
+            .toolTip {
+              right: 0;
+            }
+          }
+
+          &.today {
+            span {
+              @apply bg-primary text-white;
+            }
+          }
+
+          &.event {
+            span {
+              @apply border border-primary;
+            }
+          }
+
+          &.holiday {
+            span {
+              @apply border border-secondary;
+            }
+          }
+
+          &.remote {
+            span {
+              @apply bg-secondary text-white;
+            }
+          }
+
+          &.leave {
+            span {
+              @apply bg-txt text-white;
+            }
+          }
+
+          &.sh {
+            span {
+              box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.25);
+            }
+          }
+
+          span {
+            &:hover + .toolTip {
+              opacity: 1;
+              top: 110%;
+              z-index: 20;
+            }
+          }
+        }
+      }
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      align-content: center;
+      justify-content: center;
+      width: 100%;
+
+      th,
+      td {
+        text-align: center;
+      }
+    }
+  }
+}

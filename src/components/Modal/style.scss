@@ -1,0 +1,29 @@
+.apx-mod {
+  transition: 0.3s cubic-bezier(0.5, 0.05, 0.28, 1.45);
+
+  &:not([open]) {
+    display: flex;
+    transform: scale(0);
+  }
+
+  &::backdrop {
+    background: rgba(#000, 0.4);
+    z-index: 1;
+  }
+
+  .apx-close {
+    position: absolute;
+    right: 0;
+    top: -50px;
+
+    svg {
+      fill: #fff;
+      height: 25px;
+      width: 25px;
+    }
+  }
+
+  .backdrop {
+    background-color: #fff !important;
+  }
+}

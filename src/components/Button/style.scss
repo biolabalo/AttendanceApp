@@ -1,0 +1,23 @@
+.btn {
+  min-height: 35px;
+  background: linear-gradient(
+    93.1deg,
+    #26a595 47.44%,
+    rgba(71, 207, 196, 0.1) 166.28%
+  );
+  box-shadow: 0px 4px 30px rgba(38, 165, 149, 0.15);
+
+  &.short {
+    width: auto;
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 4px rgba(black, 0.5);
+  }
+
+  &.no-hover {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
