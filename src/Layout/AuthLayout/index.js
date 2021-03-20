@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo from 'assets/images/AgroMall.png';
-// import logo from 'assets/logo.png';
 import bg from 'assets/images/home.png';
 import './style.scss';
 
@@ -27,13 +25,9 @@ const Auth = ({ children }) => {
         >
           <div className="w-full h-full overflow-hidden flex items-end lg:items-start lg:justify-center">
             <div className=" mb-32 ml-32 max-w-1/2 lg:max-w-full lg:ml-0 lg:mt-10">
-              <img
-                src={logo}
-                alt="Agromall logo"
-                className="w-14 h-14 rounded-full mb-5 sm:w-8 sm:h-8 sm:mb-3"
-              />
+          
 
-              <h1 className="text-4xl text-white md:text-base font-semibold">
+            <h1 className="text-4xl text-white md:text-base font-semibold">
                 HR ATTENDANCE MANAGEMENT SYSTEM
               </h1>
             </div>

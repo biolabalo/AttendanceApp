@@ -48,10 +48,7 @@ export const validateInput = (event) =>
 
 export const randomInt = (length) => Math.floor(Math.random() * (length - 1));
 
-const baseurl =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:7878/attendance'
-    : 'https://api-canteen.tellerium.io/attendance';
+const baseurl = 'https://api-canteen.tellerium.io/attendance';
 
 export const axiosInstance = axios.create({
   baseURL: `${baseurl}/api/v1`,
@@ -123,7 +120,7 @@ export async function login_user(userObj) {
 
 export function logOut() {
   Cookies.remove('tell-attendance-app');
-
+  window.location = '/signin'
   try {
     // axiosInstance.get('logout');
   } catch (err) {}
