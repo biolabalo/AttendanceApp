@@ -121,7 +121,7 @@ export async function login_user(userObj) {
 export function logOut() {
   Cookies.remove('tell-attendance-app');
 
-  window.location.href = 'https://wizardly-hugle-a139d3.netlify.app/signin'
+  window.location.href = 'https://wizardly-hugle-a139d3.netlify.app'
   try {
     // axiosInstance.get('logout');
   } catch (err) {}
